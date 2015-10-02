@@ -1,4 +1,4 @@
-package learn.tutorails.simpleprograms;
+package learn.tutorials.simpleprograms;
 
 public class Palindrome {
 

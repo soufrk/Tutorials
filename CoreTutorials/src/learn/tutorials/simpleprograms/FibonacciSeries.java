@@ -1,4 +1,4 @@
-package learn.tutorails.simpleprograms;
+package learn.tutorials.simpleprograms;
 
 public class FibonacciSeries {
 
@@ -31,11 +31,9 @@ public class FibonacciSeries {
 	public int[] fibSeriesWithRecusrion(int input, int[] fibSeries, int previous, int current, int count){
 		if(input == 0)
 			return fibSeries;
-		int temp = 0;
 		fibSeries[count] = previous;
-		temp = current;
-		current = previous + current;
-		previous = temp;
+		current = current + previous;
+		previous = current - previous;
 		fibSeriesWithRecusrion(input-1, fibSeries, previous, current, count + 1);
 		return fibSeries;
 	}

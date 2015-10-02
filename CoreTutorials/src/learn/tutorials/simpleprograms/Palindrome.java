@@ -9,11 +9,9 @@ public class Palindrome {
 		int input = 12321;
 		String inputString = String.valueOf(input);
 		char[] inputArray = inputString.toCharArray();
-		char[] resultArray = new char[inputArray.length];
 		String resultString = "";
 		for(int i = 0; i < inputArray.length; i++){
 			resultString += inputArray[inputArray.length - 1 - i];
-			resultArray[i] = inputArray[inputArray.length - 1 - i];
 		}
 		System.out.println(resultString);
 		int result = Integer.parseInt(resultString);

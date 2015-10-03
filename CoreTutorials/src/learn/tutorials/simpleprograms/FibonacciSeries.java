@@ -6,14 +6,15 @@ public class FibonacciSeries {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		int input = 100;
 		FibonacciSeries series = new FibonacciSeries();
-		int[] firstResultSeries = series.fibSeriesWithoutRecursion(10);
+		int[] firstResultSeries = series.fibSeriesWithoutRecursion(input);
 		for(int resultNumber : firstResultSeries){
 			System.out.print(resultNumber + "\t");
 		}
 		System.out.println("");
-		int[] secondResultSeries = new int[10]; 
-		secondResultSeries = series.fibSeriesWithRecusrion(10, secondResultSeries, 0, 1, 0);
+		int[] secondResultSeries = new int[input]; 
+		secondResultSeries = series.fibSeriesWithRecusrion(input, secondResultSeries, 0, 1, 0);
 		for(int resultNumber : secondResultSeries){
 			System.out.print(resultNumber + "\t");
 		}

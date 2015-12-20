@@ -24,6 +24,18 @@
     <servlet-name>ProfileServlet</servlet-name>
     <servlet-class>learn.tutorials.servlet.cookies.ProfileServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>LoginHttpSession</servlet-name>
+    <servlet-class>learn.tutorials.servlet.httpsession.LoginHttpSession</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LogoutHttpSession</servlet-name>
+    <servlet-class>learn.tutorials.servlet.httpsession.LogoutHttpSession</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ProfileHttpSessionServlet</servlet-name>
+    <servlet-class>learn.tutorials.servlet.httpsession.ProfileHttpSessionServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>Hello</servlet-name>
     <url-pattern>/servlet/Hello</url-pattern>
@@ -49,7 +61,29 @@
 	<display-name>ProfileServlet</display-name>  
     <servlet-name>ProfileServlet</servlet-name>  
     <url-pattern>/ProfileServlet</url-pattern>  
+  </servlet-mapping>
+  <servlet-mapping>
+	<display-name>LoginHttpSession</display-name>  
+    <servlet-name>LoginHttpSession</servlet-name>  
+    <url-pattern>/LoginHttpSession</url-pattern>  
   </servlet-mapping> 
+  <servlet-mapping>  
+    <servlet-name>LogoutHttpSession</servlet-name>  
+    <url-pattern>/LogoutHttpSession</url-pattern>  
+  </servlet-mapping> 
+  <servlet-mapping>
+	<display-name>ProfileHttpSessionServlet</display-name>  
+    <servlet-name>ProfileHttpSessionServlet</servlet-name>  
+    <url-pattern>/ProfileHttpSessionServlet</url-pattern>  
+  </servlet-mapping>
+  <filter>
+  	<filter-name>MyFilter</filter-name>
+  	<filter-class>learn.tutorials.servlet.filter.MyFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>MyFilter</filter-name>
+  	<url-pattern>/LoginHttpSession</url-pattern>
+  </filter-mapping>
   <welcome-file-list>
     <!-- <welcome-file>MyHTML.html</welcome-file> -->
     <welcome-file>Index.html</welcome-file>

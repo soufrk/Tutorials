@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost/hibernatedb</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.internal.NoCacheProvider</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">create</property>
+
+        <mapping class="learn.tutorials.hibernate.dto.UserDetails"/>
+        <mapping class="learn.tutorials.hibernate.dto.Vehicle"/>
+        <mapping class="learn.tutorials.hibernate.dto.Mobile"/>
+        <mapping class="learn.tutorials.hibernate.dto.Pen"/>
+        <mapping class="learn.tutorials.hibernate.dto.Position"/>
+        <mapping class="learn.tutorials.hibernate.dto.TwoWheelerVehicle"/>
+        <mapping class="learn.tutorials.hibernate.dto.FourWheelerVehicle"/>
+        <mapping class="learn.tutorials.hibernate.dto.BallPen"/>
+        <mapping class="learn.tutorials.hibernate.dto.FountainPen"/>
+        <mapping class="learn.tutorials.hibernate.dto.KeyPadMobile"/>
+        <mapping class="learn.tutorials.hibernate.dto.TouchScreenMobile"/>
+
+    </session-factory>
+
+</hibernate-configuration>

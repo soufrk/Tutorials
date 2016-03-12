@@ -101,7 +101,7 @@ class ClassImplementingStaticInterface implements StaticInterface1 {
 }
 
 /**
- * Interface having only one abstract method : Funtional Interface
+ * Interface having only one abstract method : Functional Interface
  * 
  * @author KD
  *

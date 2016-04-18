@@ -9,32 +9,38 @@ import java.util.ListIterator;
 
 public class HierarchicalLinkedList<E> extends AbstractSequentialList<E>
 		implements List<E>, Deque<E>, Cloneable, Serializable {
-	private transient Entry<E> header = new Entry<E>(null, null, null);
+	private transient Entry<E> header;
 	private transient int size = 0;
 
 	// constructs an empty list
 	public HierarchicalLinkedList() {
-		header.nextX = header.nextY = header;
+		header = new Entry<E>(null, null, null);
 	}
 
 	// adds a new element in vertical direction
-	public Entry<E> addVertical(E e) {
+	public void addVertical(E e) {
 		if (e == null)
 			throw new NullPointerException("Element is null");
 		Entry<E> entry = new Entry<E>(e, null, null);
-		entry.nextY = this.header;
-		header = entry;
-		return entry;
+		if (header.element == null)
+			header = entry;
+		else {
+			entry.previousY = this.header;
+			header = entry;
+		}
 	}
 
 	// adds a new element in horizontal direction
-	public Entry<E> addHorizontal(E e) {
+	public void addHorizontal(E e) {
 		if (e == null)
 			throw new NullPointerException("Element is null");
 		Entry<E> entry = new Entry<E>(e, null, null);
-		entry.nextX = this.header;
-		header = entry;
-		return entry;
+		if (header.element == null)
+			header = entry;
+		else {
+			entry.previousX = this.header;
+			header = entry;
+		}
 	}
 
 	@Override
@@ -44,23 +50,21 @@ public class HierarchicalLinkedList<E> extends AbstractSequentialList<E>
 
 	private static class Entry<E> {
 		E element;
-		Entry<E> nextX;
-		Entry<E> nextY;
+		Entry<E> previousX;
+		Entry<E> previousY;
 
 		Entry(E element, Entry<E> next, Entry<E> nextY) {
 			this.element = element;
-			this.nextX = next;
-			this.nextY = nextY;
+			this.previousX = next;
+			this.previousY = nextY;
 		}
 
 		@Override
 		public String toString() {
-			String str = "";
-			str += "Entry [element=" + element != null ? element.toString()
-					: null + ", nextX=" + nextX != null ? nextX.toString()
-							: null + ", nextY=" + nextY != null ? nextY
-									.toString() : null + "]";
-			return str;
+			if (this.element == null)
+				return "null";
+			return "Entry [element=" + element.toString() + ", previousX=" + (this.previousX == null ? "null" : this.previousX)  + ", previousY="
+					+ (previousY == null ? "null" : previousY) + "]";
 		}
 
 	}

@@ -55,17 +55,75 @@ public class DOMdemo {
 		System.out.println("\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n");
 		// 4. Write a xml to console
 		writeXML(documentBuilder);
+		System.out.println("\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n\n");
 		// 5. Edit an existing xml and save it
 		editXML(documentBuilder);
 	}
 
 	/**
-	 * Edits an existing xml using dom parser
+	 * <ul>
+	 * <li>Edits an existing xml using dom parser</li>
+	 * <li>Following edits are being performed:</li>
+	 * <ol>
+	 * <li>Update the “id” attribute value for all the Employee based on Gender.
+	 * For Male, id will be prefixed with “M” else prefix with “F”.</li>
+	 * <li>Update the value of “name” element by making it to upper case.</li>
+	 * <li>Delete “gender” element as it’s not used now.</li>
+	 * <li>Add a new element “salary” to all the employee node in the xml.</li>
+	 * </ol>
+	 * </ul>
 	 * 
 	 * @param documentBuilder
+	 * @throws IOExceptiony
+	 * @throws SAXException
+	 * @throws TransformerException
 	 */
-	private static void editXML(DocumentBuilder documentBuilder) {
-//		documentBuilder
+	private static void editXML(DocumentBuilder documentBuilder)
+			throws SAXException, IOException, TransformerException {
+		// 1. Get the xml document as input stream
+		Document document = documentBuilder.parse(DOMdemo.class.getClassLoader().getResourceAsStream("employee.xml"));
+		// 2. Get all the employee node list
+		NodeList nodeList = document.getElementsByTagName("Employee");
+		// 3. For each employee do the following
+		for (int i = 0; i < nodeList.getLength(); i++) {
+			Node node = nodeList.item(i);
+			if (node.getNodeType() == Node.ELEMENT_NODE) {
+				Element element = (Element) node;
+				// 4. Get id
+				String attrValue = element.getAttribute("id");
+				Node genderNode = null;
+				if (node.hasChildNodes()) {
+					NodeList childNodeList = element.getChildNodes();
+					for (int j = 0; j < childNodeList.getLength(); j++) {
+						Node childNode = childNodeList.item(j);
+						// 5. Get name and set it again in upper case
+						if (childNode.getNodeName().equals("name"))
+							childNode.setTextContent(childNode.getTextContent().toUpperCase());
+						// 6. Get the gender node
+						else if (childNode.getNodeName().equals("gender"))
+							genderNode = childNode;
+					}
+				}
+				// 7. Identify the gender and append proper prefix to id value
+				element.setAttribute("id",
+						(genderNode.getTextContent().equalsIgnoreCase("male") ? "M" : "F") + attrValue);
+				// 8. Remove gender node
+				element.removeChild(genderNode);
+				// 9. Create a new node salary and append it to the current
+				// employee
+				Node salaryNode = document.createElement("salary");
+				salaryNode.setTextContent("200000");
+				element.appendChild(salaryNode);
+			}
+		}
+		// 10. Normalize the xml
+		document.getDocumentElement().normalize();
+		// 11. Output the edited xml to console
+		TransformerFactory transformerFactory = TransformerFactory.newInstance();
+		Transformer transformer = transformerFactory.newTransformer();
+		DOMSource source = new DOMSource(document);
+		StreamResult console = new StreamResult(System.out);
+		transformer.transform(source, console);
 
 	}
 

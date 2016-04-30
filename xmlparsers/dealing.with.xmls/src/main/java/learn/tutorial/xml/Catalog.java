@@ -1,4 +1,4 @@
-package learn.tutorial.xml.parser.sax;
+package learn.tutorial.xml;
 
 import java.util.List;
 
@@ -9,12 +9,12 @@ import java.util.List;
  *
  */
 public class Catalog {
-	List<Product> productList;
+	public List<Product> productList;
 
 	public class Product {
-		String description;
-		String productImage;
-		List<CatalogItem> catalogItemList;
+		public String description;
+		public String productImage;
+		public List<CatalogItem> catalogItemList;
 
 		@Override
 		public String toString() {
@@ -24,10 +24,10 @@ public class Catalog {
 	}
 
 	public class CatalogItem {
-		String gender;
-		String itemNumber;
-		Double price;
-		List<Size> sizeList;
+		public String gender;
+		public String itemNumber;
+		public Double price;
+		public List<Size> sizeList;
 
 		@Override
 		public String toString() {
@@ -37,8 +37,8 @@ public class Catalog {
 	}
 
 	public class Size {
-		String description;
-		List<ColorSwatch> colorSwatchList;
+		public String description;
+		public List<ColorSwatch> colorSwatchList;
 
 		@Override
 		public String toString() {
@@ -47,8 +47,8 @@ public class Catalog {
 	}
 
 	public class ColorSwatch {
-		String image;
-		String color;
+		public String image;
+		public String color;
 
 		@Override
 		public String toString() {

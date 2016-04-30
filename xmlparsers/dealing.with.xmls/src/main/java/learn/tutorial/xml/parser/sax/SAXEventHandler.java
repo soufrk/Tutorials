@@ -6,6 +6,8 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import learn.tutorial.xml.Catalog;
+
 /**
  * <ul>
  * <li>The actual parsing is done by the Handler class and we need to create our

@@ -8,6 +8,8 @@ import javax.xml.parsers.SAXParserFactory;
 
 import org.xml.sax.SAXException;
 
+import learn.tutorial.xml.Catalog;
+
 /**
  * <ul>
  * <li>Java SAX Parser provides API to parse XML documents. SAX Parsers are

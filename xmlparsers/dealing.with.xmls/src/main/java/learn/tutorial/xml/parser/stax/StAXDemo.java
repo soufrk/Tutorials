@@ -1,4 +1,4 @@
-package learn.tutorial.xml.parser.stax.cursor;
+package learn.tutorial.xml.parser.stax;
 
 import java.io.InputStream;
 

@@ -31,7 +31,6 @@ public class StAXIteratorAPI {
 		Catalog.CatalogItem catalogItem = null;
 		Catalog.Size size = null;
 		Catalog.ColorSwatch colorSwatch = null;
-		
 
 		boolean itemNo = false;
 		boolean price = false;

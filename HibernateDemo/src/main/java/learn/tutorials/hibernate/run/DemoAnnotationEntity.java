@@ -1,28 +1,47 @@
 package learn.tutorials.hibernate.run;
 
+import java.util.Date;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
-import learn.tutorials.hibernate.annotations.Manager;
-import learn.tutorials.hibernate.xml.entity.enums.Designation;
+import learn.tutorials.hibernate.annotations.entity.HibernateValueGeneration;
+import learn.tutorials.hibernate.annotations.entity.QuotedIdentifierEntity;
+import learn.tutorials.hibernate.utility.HibernateUtil;
 
 public class DemoAnnotationEntity {
 
 	public static void main(String[] args) {
-		// 1. Load Configuration
-		Configuration cfg = new Configuration();
-		cfg.configure(DemoAnnotationEntity.class.getClassLoader().getResource("hibernate.cfg.xml"));
-		// 2. Build Session Factory
-		SessionFactory sessionFactory = cfg.buildSessionFactory();
-		// 3. Open a session
+		// 1. Get session Factory
+		SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+		// 2. Open session
 		Session session = sessionFactory.openSession();
-		// 4. Start a transaction
+		// 3. Start a transaction
 		Transaction transaction = session.beginTransaction();
-		Manager mgr = new Manager(123,"HBM002",Designation.TECHINAL_ARCHITECT);
+
+		// Test manager entity
+		// Manager mgr = new Manager(12, "HBM002",
+		// Designation.TECHINAL_ARCHITECT, Gender.MALE,
+		// "QAZWSXEDCRFVTGBYHNUJM34567893456789");
+
+		// Test Date Event Entity
+		// DateEvent dateEvent = new DateEvent(new Date(), new Date(), new
+		// Date());
+
+		// Test Quoted Identifier Entity
+		// QuotedIdentifierEntity identifierEntity = new
+		// QuotedIdentifierEntity("Saurabh Kedia");
+
+		// Test hibernate value generator
+		HibernateValueGeneration hibernateValueGeneration = new HibernateValueGeneration();
+
 		try {
-			session.save(mgr);
+			// 4. Save the session
+			// session.save(mgr);
+			// session.save(dateEvent);
+			// session.save(identifierEntity);
+			session.save(hibernateValueGeneration);
 
 			// 5. commit the transaction
 			transaction.commit();
@@ -33,7 +52,7 @@ public class DemoAnnotationEntity {
 			// 6. close the session
 			session.close();
 			// 7. close session factory
-			sessionFactory.close();
+			HibernateUtil.getSessionFactory().close();
 		}
 	}
 }

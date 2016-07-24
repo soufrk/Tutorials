@@ -1,4 +1,4 @@
-package learn.tutorials.hibernate.xml.entity.embedded;
+package learn.tutorials.hibernate.xml.entity.enums;
 
 public enum Gender {
 

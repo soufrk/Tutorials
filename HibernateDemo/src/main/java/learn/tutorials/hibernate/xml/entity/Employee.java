@@ -3,6 +3,7 @@ package learn.tutorials.hibernate.xml.entity;
 import java.io.Serializable;
 
 import learn.tutorials.hibernate.xml.entity.enums.Designation;
+import learn.tutorials.hibernate.xml.entity.enums.Gender;
 
 public class Employee implements Serializable {
 
@@ -13,15 +14,17 @@ public class Employee implements Serializable {
 	private String firstName;
 	private String lastName;
 	private Designation designation;
+//	private Gender gender;
 
 	public Employee() {
 	}
 
-	public Employee(String empId, String firstName, String lastName, Designation designation) {
+	public Employee(String empId, String firstName, String lastName, Designation designation, Gender gender) {
 		this.empId = empId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.designation = designation;
+//		this.gender = gender;
 	}
 
 	public String getEmpId() {
@@ -63,5 +66,13 @@ public class Employee implements Serializable {
 	public void setDesignation(Designation designation) {
 		this.designation = designation;
 	}
+
+//	public Gender getGender() {
+//		return gender;
+//	}
+//
+//	public void setGender(Gender gender) {
+//		this.gender = gender;
+//	}
 
 }

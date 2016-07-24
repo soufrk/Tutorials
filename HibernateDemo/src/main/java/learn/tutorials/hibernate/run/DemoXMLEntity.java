@@ -24,7 +24,7 @@ public class DemoXMLEntity {
 			session = sessionFactory.openSession();
 			// 4. Start a transaction
 			transaction = session.beginTransaction();
-			Employee emp = new Employee("HBM001", "Bruce", "Wayne", Designation.SOFTWARE_ENGINEER);
+			Employee emp = new Employee("HBM001", "Bruce", "Wayne", Designation.SOFTWARE_ENGINEER, null);
 			emp.setId(2);
 			session.save(emp);
 			// 5. commit the transaction

@@ -3,7 +3,7 @@ package learn.tutorials.hibernate.xml.entity.enums.converter;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 
-import learn.tutorials.hibernate.xml.entity.embedded.Gender;
+import learn.tutorials.hibernate.xml.entity.enums.Gender;
 
 @Converter
 public class GenderConverter implements AttributeConverter<Gender, Character> {

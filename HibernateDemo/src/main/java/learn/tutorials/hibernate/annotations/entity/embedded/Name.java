@@ -1,4 +1,4 @@
-package learn.tutorials.hibernate.xml.entity.embedded;
+package learn.tutorials.hibernate.annotations.entity.embedded;
 
 import javax.persistence.Embeddable;
 

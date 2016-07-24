@@ -17,6 +17,12 @@
 				<param name="useNamed">true</param>
 			</type>
 		</property>
+		<!-- <property name="gender" coulmn="gender">
+			<type name="org.hibernate.type.EnumType">
+				<param name="enumClass">learn.tutorials.hibernate.xml.entity.enums.Gender</param>
+				
+			</type>
+		</property> -->
 
 	</class>
 </hibernate-mapping>

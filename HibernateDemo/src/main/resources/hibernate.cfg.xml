@@ -5,7 +5,7 @@
 <hibernate-configuration>
 	<session-factory>
 		<!-- Basic Hibernate configurations required to run a hibernate application -->
-	<!-- 	<property name="hbm2ddl.auto">create</property> -->
+		<property name="hbm2ddl.auto">update</property>
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 		<property name="connection.url">jdbc:mysql://localhost/test</property>
 		<property name="connection.username">root</property>
@@ -13,13 +13,13 @@
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
-		
+
 		<!-- Optional settings -->
 		<property name="current_session_context_class">thread</property>
 		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
 
 		<!-- JDBC connection pool (use the built-in) -->
-		<!-- <property name="connection.pool_size">1</property> -->
+		<property name="connection.pool_size">1</property>
 		<!-- Enable Hibernate's automatic session context management -->
 		<!-- Disable the second-level cache -->
 
@@ -31,7 +31,12 @@
 		<property name="hibernate.c3p0.idle_test_period">3000</property>
 
 		<mapping resource="employee.hbm.xml" />
-		<mapping class="learn.tutorials.hibernate.annotations.Manager" />
+		<mapping class="learn.tutorials.hibernate.annotations.entity.Manager" />
+		<mapping class="learn.tutorials.hibernate.annotations.entity.DateEvent" />
+		<mapping
+			class="learn.tutorials.hibernate.annotations.entity.QuotedIdentifierEntity" />
+		<mapping
+			class="learn.tutorials.hibernate.annotations.entity.HibernateValueGeneration" />
 
 	</session-factory>
 </hibernate-configuration>

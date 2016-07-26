@@ -63,7 +63,7 @@ class SingletonClassBP {
 	/**
 	 * Method to return the single instance created for this class which
 	 * internally calls the private static class to get the INSTANCE, no
-	 * synchronization is required and it eill be called only once when the
+	 * synchronisation is required and it will be called only once when the
 	 * first call is made
 	 * 
 	 * @return SingletonClassLI1

@@ -1,19 +1,19 @@
 package learn.tutorials.singletondesignpattern;
 
 
-public class SingletonClass implements Cloneable{
+public class SingletonClass2 implements Cloneable{
 	// private static SingletonClass object = new SingletonClass();
-	private static SingletonClass object;
+	private static SingletonClass2 object;
 	private String message;
 
-	private SingletonClass() {
+	private SingletonClass2() {
 	};
 
-	public static SingletonClass getInstance() {
+	public static SingletonClass2 getInstance() {
 		if (object == null) {
-			synchronized (SingletonClass.class) {
+			synchronized (SingletonClass2.class) {
 				if (object == null)
-					object = new SingletonClass();
+					object = new SingletonClass2();
 			}
 		}
 		return object;

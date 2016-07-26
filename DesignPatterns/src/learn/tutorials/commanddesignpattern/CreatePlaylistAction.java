@@ -21,7 +21,7 @@ public class CreatePlaylistAction implements UtilityActionCommand {
 		System.out.println("Creating Playlist");
 		new FileActionInvoker("Source", null, "Create", "playlist");
 		System.out.println("Creating key");
-		new FileActionInvoker("Source", null, "Create", "key");
+		new FileActionInvoker("Source", null, "Create", "key").execute();
 	}
 
 }

@@ -17,7 +17,7 @@ public class EncryptFileAction implements UtilityActionCommand {
 		System.out.println("Getting encrypted file location and source file loaction");
 		System.out.println("Create Encrypted File");
 		System.out.println("Creating Key file");
-		new FileActionInvoker("Source", null, "Create", key);
+		new FileActionInvoker("Source", null, "Create", key).execute();
 	}
 
 }

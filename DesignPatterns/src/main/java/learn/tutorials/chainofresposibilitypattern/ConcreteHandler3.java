@@ -6,6 +6,12 @@ import learn.tutorials.chainofresposibilitypattern.combining.decoratorpattern.Co
 import learn.tutorials.chainofresposibilitypattern.combining.decoratorpattern.ConcreteAction4;
 import learn.tutorials.chainofresposibilitypattern.combining.decoratorpattern.ConcreteAction5;
 
+/**
+ * Concrete Handler 3 having JobhandlerType as Type3
+ * 
+ * @author KD
+ *
+ */
 @JobType(jobHandlerType = JobHandlerType.TYPE3)
 public class ConcreteHandler3 implements Handler {
 	@Override

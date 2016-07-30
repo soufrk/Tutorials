@@ -8,6 +8,12 @@ import learn.tutorials.chainofresposibilitypattern.combining.decoratorpattern.Co
 import learn.tutorials.chainofresposibilitypattern.combining.decoratorpattern.ConcreteAction4;
 import learn.tutorials.chainofresposibilitypattern.combining.decoratorpattern.ConcreteAction5;
 
+/**
+ * Concrete Handler 1 having JobhandlerType as Type1
+ * 
+ * @author KD
+ *
+ */
 @JobType(jobHandlerType = JobHandlerType.TYPE1)
 public class ConcreteHandler1 implements Handler {
 

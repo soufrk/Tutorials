@@ -1,7 +1,7 @@
 package learn.tutorials.chainofresposibilitypattern;
 
 @JobType(jobHandlerType = JobHandlerType.TYPE1)
-public class ConcreteHandler1 extends AbstractHandler {
+public class ConcreteHandler1 implements Handler {
 	
 	@Override
 	public void handleRequest(){

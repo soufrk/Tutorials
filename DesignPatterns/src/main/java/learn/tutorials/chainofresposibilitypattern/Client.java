@@ -8,7 +8,7 @@ import org.reflections.Reflections;
 public class Client {
 
 	public static void main(String[] args) throws Exception {
-		JobHandlerType jobHandlerType = JobHandlerType.TYPE2;
+		JobHandlerType jobHandlerType = JobHandlerType.TYPE3;
 		Handler handler = null;
 
 		// Get the instance of a class based on its job-type

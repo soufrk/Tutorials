@@ -6,7 +6,7 @@ package practice.technique.dynamic.programming;
 // passed { 0, 1, 0 }, { 1, 0, 1 }, { 0, 2, 2 }
 public class TomNJerry {
 	public static void main(String[] args) {
-		int[][] maze = new int[][] { { 0, 2, 0 }, { 0, 0, 1 }, { 1, 1, 1 } };
+		int[][] maze = new int[][] { { 0, 0, 2 }, { 0, 0, 0 }, { 2, 1, 2 } };
 		int x = 1, y = 1;
 		int minMoves = minMoves(maze, x, y);
 		System.out.println(minMoves);
@@ -62,6 +62,8 @@ public class TomNJerry {
 			System.out.println("Count after chesse at cx " + i[0] + " cy " + i[1] + " : " + count);
 			tx = i[0];
 			ty = i[1];
+			if(count == -1)
+				return count;
 		}
 		count = goToNextCoordinate(jx, jy, tx, ty, cB, count, n);
 		return count;
@@ -78,8 +80,10 @@ public class TomNJerry {
 			count = goToNextCoordinate(cx, cy, tx, ty + 1, cB, count + 1, n);
 		} else if (cx - tx < 0 && !isBlocked(tx + 1, ty, cB) && tx >= 0) {
 			count = goToNextCoordinate(cx, cy, tx - 1, ty, cB, count + 1, n);
-		} else if (cy - ty < 0 && !isBlocked(tx + 1, ty, cB) && ty >= 0) {
+		} else if (cy - ty < 0 && !isBlocked(tx, ty - 1, cB) && ty >= 0) {
 			count = goToNextCoordinate(cx, cy, tx, ty - 1, cB, count + 1, n);
+		} else {
+			count = -1;
 		}
 		return count;
 	}

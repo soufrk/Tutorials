@@ -1,5 +1,6 @@
 package ds.linkedlist;
 
+import java.util.Comparator;
 import java.util.Stack;
 
 public class SinglyLL<T extends Comparable<T>> {
@@ -468,6 +469,54 @@ public class SinglyLL<T extends Comparable<T>> {
 		return pivotIndex - 1;
 	}
 
+	/**
+	 * Sort a given list using Quick Sort algorithm using comparator
+	 * 
+	 * @param startIndex
+	 *            : start index of the list to be sorted
+	 * @param endIndex
+	 *            : end index of the list to be sorted
+	 * @param list
+	 *            : list that needs to be sorted
+	 */
+	public void quickSort(int startIndex, int endIndex, SinglyLL<T> list, Comparator<T> comparator) {
+		if (startIndex >= endIndex)
+			return;
+		int pivot = partition(list, startIndex, endIndex, comparator);
+		quickSort(startIndex, pivot - 1, list);
+		quickSort(pivot + 1, endIndex, list);
+		return;
+	}
+
+	/**
+	 * Partition the list based quick sort partition algorithm and return the
+	 * pivot index
+	 * 
+	 * @param list
+	 * @param startIndex
+	 * @param endIndex
+	 * @return
+	 */
+	private int partition(SinglyLL<T> list, int startIndex, int endIndex, Comparator<T> comparator) {
+		int pivotIndex = startIndex;
+		Node<T> pivot = list.get(endIndex);
+		Node<T> cursor = list.get(startIndex);
+		int position = startIndex;
+		while (cursor != null && position <= endIndex) {
+			if (comparator.compare(pivot.data, cursor.data) >= 0) {
+				list.swapNodes(pivotIndex, position);
+				pivotIndex++;
+				cursor = list.get(position).next;
+			} else
+				cursor = cursor.next;
+			position++;
+		}
+		return pivotIndex - 1;
+	}
+
+	/**
+	 * Check if a list is palindrome or not
+	 */
 	public boolean isPalindrome(SinglyLL<T> list) {
 		Stack<Node<T>> stack = new Stack<>();
 		Node<T> cursor = list.head;

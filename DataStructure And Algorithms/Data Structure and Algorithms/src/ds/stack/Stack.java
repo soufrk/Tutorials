@@ -26,15 +26,15 @@ public class Stack<T> {
 		if (dataList.size() == 0) {
 			throw new Exception("Stack is empty");
 		}
-		T t = dataList.remove(top);
+		T t = dataList.remove(top - 1);
 		top--;
 		return t;
 	}
 
 	public T peek() throws Exception {
 		if (dataList.size() == 0) {
-			throw new Exception("Stack is empty");
+			return null;
 		}
-		return dataList.get(top);
+		return dataList.get(top - 1);
 	}
 }

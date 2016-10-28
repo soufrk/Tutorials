@@ -10,7 +10,7 @@ public class Stack<T> {
 
 	public Stack() {
 		this.top = 0;
-		this.capacity = 16;
+		this.capacity = 32;
 		this.dataList = new LinkedList<>();
 	}
 

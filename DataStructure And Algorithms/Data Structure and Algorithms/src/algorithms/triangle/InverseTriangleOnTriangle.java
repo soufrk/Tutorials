@@ -1,4 +1,4 @@
-package triangle.algorithms;
+package algorithms.triangle;
 
 public class InverseTriangleOnTriangle {
 

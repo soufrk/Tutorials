@@ -1,4 +1,4 @@
-package search.algorithms;
+package algorithms.search;
 
 /**
  * Optimal block size for jump search is square root of length of array. Jump

@@ -1,6 +1,6 @@
 package algorithms.backtracking;
 
-import sort.algorithms.QuickSort;
+import algorithms.sort.QuickSort;
 
 public class SubSetSum {
 
@@ -8,20 +8,27 @@ public class SubSetSum {
 		int[] noArray = { 10, 7, 5, 18, 12, 20, 15 };
 		noArray = QuickSort.qSort(noArray, 0, noArray.length - 1);
 		int target = 53;
-		findSubSet(noArray, target, noArray.length);
+		findSubSet(noArray, target, 0, 0);
 	}
 
-	private static void findSubSet(int[] noArray, int target, int n) {
-		if ()
-			return;
-		int currentSum = 0;
-		for (int j = i; j < noArray.length; j++) {
-			int no = noArray[i++];
-			findSubSet(noArray, target, i);
-			currentSum += no;
-			System.out.println(currentSum);
+	private static boolean findSubSet(int[] noArray, int target, int sum, int i) {
+		if (sum == target)
+			return true;
+		if (i >= noArray.length && sum != target)
+			return false;
+		if (sum > target)
+			return false;
+
+		// with the number
+		int current = noArray[i];
+		if (findSubSet(noArray, target, sum + current, ++i)) {
+			System.out.print(current + "\t");
+			return true;
+			// without the number
+		} else if (findSubSet(noArray, target, sum, i)) {
+			return true;
 		}
-		return;
+		return false;
 	}
 
 }

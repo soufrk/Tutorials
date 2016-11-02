@@ -44,7 +44,7 @@ public class QuickSort {
 		System.out.println("Sorted array : " + Arrays.toString(integerArray));
 	}
 
-	private static int[] qSort(int[] integerArray, int startIndex, int endIndex) {
+	public static int[] qSort(int[] integerArray, int startIndex, int endIndex) {
 		if (startIndex > endIndex)
 			return integerArray;
 		int pivot = partition(integerArray, startIndex, endIndex);

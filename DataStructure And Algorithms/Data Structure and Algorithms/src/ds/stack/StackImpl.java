@@ -31,7 +31,7 @@ public class StackImpl {
 		System.out.println("Result : " + StackAlgortihms.evaluatePostfixExpression(postfix));
 
 		// recursive stack sort
-		Stack<Integer> sortStack = StackAlgortihms.emptyStack(stack);
+		Stack<Integer> sortStack = StackAlgortihms.sortStack(stack);
 		System.out.println(sortStack);
 	}
 

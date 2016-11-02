@@ -73,11 +73,6 @@ public class StackAlgortihms {
 		stackSorted = sort(stackSorted, t);
 		return stackSorted;
 	}
-	
-//	public static int[] stockSpan(int[] stockPriceArray){
-//		Stack<Integer> intStack =  new Stack<>();
-//		for()
-//	}
 
 	private static <T extends Comparable<T>> Stack<T> sort(Stack<T> stackSorted, T t) throws Exception {
 		if (stackSorted.peek() == null)
